@@ -20,7 +20,7 @@ defmodule BeerSong do
 
   defp get_action_phrase(0), do: "Go to the store and buy some more"
   defp get_action_phrase(1), do: "Take it down and pass it around"
-  defp get_action_phrase(n), do: "Take one down and pass it around"
+  defp get_action_phrase(_n), do: "Take one down and pass it around"
 
   @doc """
   Get the entire beer song for a given range of numbers of bottles.

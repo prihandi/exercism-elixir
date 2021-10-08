@@ -1,12 +1,11 @@
 defmodule WordCount do
+  @word_splitter ~R/[^[:alnum:]\-\']/u
+
   @doc """
   Count the number of words in the sentence.
 
   Words are compared case-insensitively.
   """
-
-  @word_splitter ~R/[^[:alnum:]\-\']/u
-
   @spec count(String.t()) :: map
   def count(sentence) do
     sentence

@@ -24,7 +24,7 @@ defmodule Change do
       |> Map.get(target)
       |> case do
         nil -> {:error, @err_message}
-        result -> {:ok, Enum.sort(result)}
+        result -> {:ok, result}
       end
     end
   end
@@ -46,7 +46,7 @@ defmodule Change do
       true ->
         nominals =
           coins
-          |> Enum.sort(:desc)
+          |> Enum.sort()
           |> Enum.reject(fn x -> x > target end)
 
         {:ok, target, nominals}

@@ -7,10 +7,10 @@ defmodule Clock do
       iex> Clock.new(8, 9) |> to_string
       "08:09"
   """
-  @spec new(integer, integer) :: Clock
+  @spec new(integer, integer) :: %Clock{}
   def new(h, m) do
-    minute = rem(m, 60)
-    hour = rem(h + div(h * 60 + m, 60), 24)
+    minute = Integer.mod(m, 60)
+    hour = Integer.mod(Integer.floor_div(h * 60 + m, 60), 24)
 
     %Clock{hour: hour, minute: minute}
   end
@@ -21,7 +21,7 @@ defmodule Clock do
       iex> Clock.new(10, 0) |> Clock.add(3) |> to_string
       "10:03"
   """
-  @spec add(Clock, integer) :: Clock
+  @spec add(%Clock{}, integer) :: %Clock{}
   def add(%Clock{hour: hour, minute: minute}, add_minute) do
     new(hour, minute + add_minute)
   end
